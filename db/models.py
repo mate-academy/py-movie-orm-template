@@ -135,7 +135,7 @@ class MovieGenre(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
 
     importance_level = models.IntegerField(
-        choices=ImportanceLevel.choices,
+        choices=ImportanceLevel,
         null=True,
         blank=True
     )
@@ -163,7 +163,7 @@ class MovieDirector(models.Model):
 
     role = models.CharField(
         max_length=20,
-        choices=RoleType.choices,
+        choices=RoleType,
         null=True,
         blank=True
     )
@@ -191,7 +191,7 @@ class MovieStar(models.Model):
 
     role = models.CharField(
         max_length=20,
-        choices=RoleType.choices,
+        choices=RoleType,
         null=True,
         blank=True
     )
