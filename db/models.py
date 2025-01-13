@@ -3,6 +3,7 @@ from datetime import datetime
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django_extensions.db.fields import AutoSlugField
+from django.utils.translation import gettext_lazy as _
 
 
 class StaffMovie(models.Model):
@@ -135,7 +136,7 @@ class MovieGenre(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
 
     importance_level = models.IntegerField(
-        choices=ImportanceLevel,
+        choices=ImportanceLevel.choices,
         null=True,
         blank=True
     )
@@ -163,7 +164,7 @@ class MovieDirector(models.Model):
 
     role = models.CharField(
         max_length=20,
-        choices=RoleType,
+        choices=RoleType.choices,
         null=True,
         blank=True
     )
@@ -191,7 +192,7 @@ class MovieStar(models.Model):
 
     role = models.CharField(
         max_length=20,
-        choices=RoleType,
+        choices=RoleType.choices,
         null=True,
         blank=True
     )
